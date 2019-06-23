@@ -100,9 +100,9 @@ uninstall :
 $(NAME) : clean $(RES_OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) $(LDFLAGS) -o $(NAME).so
 	$(CC) $(CXXFLAGS) -Wl,-z,nodelete $(GUI_OBJECTS) $(RES_OBJECTS) $(GUI_LDFLAGS) -o $(NAME)_ui.so
-	$(STRIP) -s -x -X -R .comment -R .eh_frame -R .eh_frame_hdr -R .note.gnu.build-id -R .note.ABI-tag $(NAME).so
-	$(STRIP) -s -x -X -R .comment -R .eh_frame -R .eh_frame_hdr -R .note.gnu.build-id -R .note.ABI-tag $(NAME)_ui.so
+	$(STRIP) -s -x -X -R .comment -R .note.ABI-tag $(NAME).so
+	$(STRIP) -s -x -X -R .comment -R .note.ABI-tag $(NAME)_ui.so
 
 nogui : clean
 	$(CXX) $(CXXFLAGS) $(OBJECTS) $(LDFLAGS) -o $(NAME).so
-	$(STRIP) -s -x -X -R .comment -R .eh_frame -R .eh_frame_hdr -R .note.gnu.build-id -R .note.ABI-tag $(NAME).so
+	$(STRIP) -s -x -X -R .comment -R .note.ABI-tag $(NAME).so
